@@ -80,9 +80,8 @@ public class StanfordNLP {
 				.collect(joining(" "));
 		result.append(tokensAndNERTags);
 		result.append(System.lineSeparator());
-		result.append("Processed in: ");
-		result.append(ChronoUnit.MILLIS.between(timeStart, LocalTime.now()));
-		result.append(" millis");
+		result.append(String.format("Processed in: %s millis", ChronoUnit.MILLIS.between(timeStart, LocalTime.now())));
+		
 
 
 		return result.toString();
