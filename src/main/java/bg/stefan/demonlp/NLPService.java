@@ -8,16 +8,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.function.ServerRequest;
 import org.springframework.web.servlet.function.ServerResponse;
 
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-
 @Service
-@RequiredArgsConstructor
-@Slf4j
 public class NLPService {
 	
 	private final OpenNLP openNLP;
 	private final StanfordNLP stanfordNLP;
+	
+	public NLPService(OpenNLP openNLP, StanfordNLP stanfordNLP) { 
+		this.openNLP =  openNLP;
+		this.stanfordNLP = stanfordNLP;
+	}
 	
 	public ServerResponse getData(ServerRequest serverRequest) throws IOException {
 				
@@ -27,8 +27,7 @@ public class NLPService {
 		
 		String text = serverRequest.param("text").get();
 		
-		
-		return ok().body(stanfordNLP.ner(text) + openNLP.ner(text));
+		return ok().body(stanfordNLP.ner(text));
 	}
 	
 	
