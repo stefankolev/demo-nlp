@@ -12,7 +12,10 @@ import org.springframework.web.servlet.function.RouterFunction;
 import org.springframework.web.servlet.function.RouterFunctions;
 import org.springframework.web.servlet.function.ServerResponse;
 
+import lombok.extern.slf4j.Slf4j;
+
 @SpringBootApplication
+@Slf4j
 public class DemoNlpApplication {
 
 	public static void main(String[] args) {
@@ -31,6 +34,7 @@ public class DemoNlpApplication {
 
 	@Bean
 	public PropertiesFactoryBean nlpProperties() {
+		log.info("properties bean startu");
 		PropertiesFactoryBean bean = new PropertiesFactoryBean();
 		String path = "nlp.properties";
 
