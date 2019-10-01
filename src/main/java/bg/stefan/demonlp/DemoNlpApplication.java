@@ -26,7 +26,6 @@ public class DemoNlpApplication {
 	RouterFunction<ServerResponse> routes(NLPService nlpService) {
 
 		return RouterFunctions.route()
-
 				.POST("/", nlpService::getData).build();
 	}
 

@@ -11,11 +11,9 @@ import org.springframework.web.servlet.function.ServerResponse;
 @Service
 public class NLPService {
 	
-	private final OpenNLP openNLP;
 	private final StanfordNLP stanfordNLP;
 	
-	public NLPService(OpenNLP openNLP, StanfordNLP stanfordNLP) { 
-		this.openNLP =  openNLP;
+	public NLPService(StanfordNLP stanfordNLP) { 
 		this.stanfordNLP = stanfordNLP;
 	}
 	
